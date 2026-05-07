@@ -1,0 +1,655 @@
+ (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
+diff --git a/index.html b/index.html
+index 192a2694b716ace2e5fd1223117563cdd82e05c7..7fa8e052eb24dc6b6f928074ef0d3492f3b4b4d6 100644
+--- a/index.html
++++ b/index.html
+@@ -1,553 +1,100 @@
+ <!DOCTYPE html>
+ <html lang="ru">
+ <head>
+-    <meta charset="UTF-8">
+-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+-    <title>Алгоритм оказания неотложной помощи при БОС у детей</title>
+-    <script src="https://cdn.tailwindcss.com"></script>
+-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+-    <style>
+-        body { font-family: 'Inter', sans-serif; }
+-        .flow-line {
+-            position: absolute;
+-            width: 2px;
+-            background: linear-gradient(to bottom, #3b82f6, #10b981);
+-            left: 50%;
+-            transform: translateX(-50%);
+-            z-index: 0;
+-        }
+-        .pulse-ring {
+-            animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+-        }
+-        @keyframes pulse-ring {
+-            0% { transform: scale(0.8); opacity: 0.8; }
+-            100% { transform: scale(2); opacity: 0; }
+-        }
+-        .step-card {
+-            transition: all 0.3s ease;
+-        }
+-        .step-card:hover {
+-            transform: translateY(-2px);
+-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+-        }
+-        .age-badge {
+-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+-        }
+-        .severity-mild { border-left: 4px solid #10b981; }
+-        .severity-moderate { border-left: 4px solid #f59e0b; }
+-        .severity-severe { border-left: 4px solid #ef4444; }
+-        .medication-card {
+-            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+-        }
+-    </style>
++  <meta charset="UTF-8" />
++  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
++  <title>Семейное путешествие в Великий Новгород • 8–10 мая 2026</title>
++  <script src="https://cdn.tailwindcss.com"></script>
++  <link rel="preconnect" href="https://fonts.googleapis.com">
++  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
++  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
++  <style>
++    body { font-family: 'Inter', sans-serif; }
++    .day-badge { background: linear-gradient(135deg, #1d4ed8 0%, #0f766e 100%); }
++  </style>
+ </head>
+-<body class="bg-slate-50 min-h-screen">
+-    <!-- Header -->
+-    <header class="bg-gradient-to-r from-blue-900 via-blue-800 to-indigo-900 text-white py-8 px-4 shadow-2xl">
+-        <div class="max-w-6xl mx-auto">
+-            <div class="flex items-center gap-4 mb-4">
+-                <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center backdrop-blur">
+-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+-                    </svg>
+-                </div>
+-                <div>
+-                    <h1 class="text-3xl font-bold">Неотложная помощь при БОС у детей</h1>
+-                    <p class="text-blue-200 text-sm mt-1">Бронхообструктивный синдром • Алгоритм действий</p>
+-                </div>
+-            </div>
+-            <div class="flex gap-4 text-sm">
+-                <span class="bg-white/10 px-3 py-1 rounded-full">0-3 лет: преобладание отека/слизи</span>
+-                <span class="bg-white/10 px-3 py-1 rounded-full">3+ лет: преобладание бронхоспазма</span>
+-            </div>
++<body class="bg-slate-50 text-slate-800">
++  <header class="bg-gradient-to-r from-blue-900 via-sky-800 to-teal-700 text-white shadow-xl">
++    <div class="max-w-6xl mx-auto px-4 py-8">
++      <p class="text-sm uppercase tracking-widest text-sky-200">Мини travel app</p>
++      <h1 class="text-3xl md:text-4xl font-extrabold mt-1">Семейное путешествие в Великий Новгород</h1>
++      <p class="mt-2 text-sky-100">8–10 мая 2026 • Проживание: гостиница «Волхов»</p>
++    </div>
++  </header>
++
++  <main class="max-w-6xl mx-auto px-4 py-8 space-y-8">
++    <section class="bg-amber-50 border border-amber-300 rounded-2xl p-5">
++      <h2 class="text-xl font-bold text-amber-900">⚠️ Важно про 9 мая 2026</h2>
++      <ul class="mt-3 list-disc pl-5 space-y-1 text-amber-900">
++        <li>В центре возможны перекрытия дорог и ограничения возле Кремля.</li>
++        <li>Вероятны перебои мобильного интернета.</li>
++      </ul>
++      <div class="mt-3 grid md:grid-cols-3 gap-3 text-sm">
++        <div class="bg-white rounded-xl p-3 border">✅ Кремль и центр — лучше пройти <b>8 мая</b>.</div>
++        <div class="bg-white rounded-xl p-3 border">✅ Скачать офлайн-карты до выезда.</div>
++        <div class="bg-white rounded-xl p-3 border">✅ Сохранить PDF-гид на все телефоны семьи.</div>
++      </div>
++    </section>
++
++    <section class="grid md:grid-cols-3 gap-4">
++      <article class="bg-white rounded-2xl p-5 border shadow-sm md:col-span-2">
++        <div class="flex items-center gap-3">
++          <span class="day-badge text-white text-xs px-3 py-1 rounded-full font-semibold">День 1 • 8 мая</span>
++          <h3 class="font-bold text-lg">Древний Новгород + атмосфера города</h3>
+         </div>
+-    </header>
+-
+-    <main class="max-w-6xl mx-auto px-4 py-8">
+-        <!-- Initial Assessment -->
+-        <section class="mb-12">
+-            <div class="bg-white rounded-2xl shadow-lg p-6 border border-slate-200">
+-                <h2 class="text-xl font-bold text-slate-800 mb-4 flex items-center gap-2">
+-                    <span class="w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-sm font-bold">1</span>
+-                    Первичная оценка (0-5 минут)
+-                </h2>
+-                <div class="grid md:grid-cols-3 gap-4">
+-                    <div class="bg-red-50 border border-red-200 rounded-xl p-4 severity-severe">
+-                        <h3 class="font-bold text-red-700 mb-2">Тяжелая степень</h3>
+-                        <ul class="text-sm text-slate-700 space-y-1">
+-                            <li>• Спонтанный свистящий выдох</li>
+-                            <li>• Втяжение межреберий в покое</li>
+-                            <li>• Цианоз носогубного треугольника</li>
+-                            <li>• SpO₂ < 92%</li>
+-                            <li>• Нарушение сознания (вялость)</li>
+-                        </ul>
+-                    </div>
+-                    <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 severity-moderate">
+-                        <h3 class="font-bold text-amber-700 mb-2">Среднетяжелая</h3>
+-                        <ul class="text-sm text-slate-700 space-y-1">
+-                            <li>• Свистящие хрипы на вдохе/выдохе</li>
+-                            <li>• Втяжение уступчивых мест</li>
+-                            <li>• Цианоз при беспокойстве</li>
+-                            <li>• SpO₂ 92-95%</li>
+-                            <li>• Тахикардия, тахипноэ</li>
+-                        </ul>
+-                    </div>
+-                    <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-4 severity-mild">
+-                        <h3 class="font-bold text-emerald-700 mb-2">Легкая степень</h3>
+-                        <ul class="text-sm text-slate-700 space-y-1">
+-                            <li>• Хрипы только при беспокойстве</li>
+-                            <li>• Нет втяжений в покое</li>
+-                            <li>• Цианоз отсутствует</li>
+-                            <li>• SpO₂ > 95%</li>
+-                            <li>• Нормальное поведение</li>
+-                        </ul>
+-                    </div>
+-                </div>
+-            </div>
+-        </section>
+-
+-        <!-- Main Algorithm Flow -->
+-        <section class="mb-12">
+-            <div class="bg-white rounded-2xl shadow-lg p-6 border border-slate-200">
+-                <h2 class="text-xl font-bold text-slate-800 mb-6 flex items-center gap-2">
+-                    <span class="w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-sm font-bold">2</span>
+-                    Алгоритм неотложной терапии
+-                </h2>
+-
+-                <!-- Step 1: Oxygen -->
+-                <div class="relative mb-8">
+-                    <div class="flex items-start gap-4">
+-                        <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold shrink-0 z-10">1</div>
+-                        <div class="flex-1 bg-blue-50 rounded-xl p-4 border border-blue-200">
+-                            <h3 class="font-bold text-blue-900 mb-2">Оксигенотерапия</h3>
+-                            <p class="text-sm text-slate-700 mb-3">Чистый увлажненный кислород через назальные канюли или маску</p>
+-                            <div class="flex gap-2 text-xs">
+-                                <span class="bg-white px-3 py-1 rounded-full border">Цель: SpO₂ > 94%</span>
+-                                <span class="bg-white px-3 py-1 rounded-full border">FiO₂ начать с 0.4-0.6</span>
+-                            </div>
+-                        </div>
+-                    </div>
+-                </div>
+-
+-                <!-- Step 2: Bronchodilators -->
+-                <div class="relative mb-8">
+-                    <div class="flex items-start gap-4">
+-                        <div class="w-12 h-12 bg-indigo-500 rounded-full flex items-center justify-center text-white font-bold shrink-0 z-10">2</div>
+-                        <div class="flex-1">
+-                            <div class="bg-indigo-50 rounded-xl p-4 border border-indigo-200 mb-4">
+-                                <h3 class="font-bold text-indigo-900 mb-3">Ингаляционные β2-агонисты короткого действия</h3>
+-                                
+-                                <!-- Age-based dosing -->
+-                                <div class="grid md:grid-cols-2 gap-4">
+-                                    <div class="medication-card rounded-lg p-3">
+-                                        <div class="flex items-center gap-2 mb-2">
+-                                            <span class="age-badge text-white text-xs px-2 py-1 rounded-full">0-18 мес</span>
+-                                        </div>
+-                                        <p class="font-semibold text-slate-800">Сальбутамол (Вентолин)</p>
+-                                        <p class="text-sm text-slate-600">2.5 мг (1 небула) через небулайзер</p>
+-                                        <p class="text-xs text-slate-500 mt-1">Развести 2-3 мл 0.9% NaCl</p>
+-                                    </div>
+-                                    <div class="medication-card rounded-lg p-3">
+-                                        <div class="flex items-center gap-2 mb-2">
+-                                            <span class="age-badge text-white text-xs px-2 py-1 rounded-full">> 18 мес</span>
+-                                        </div>
+-                                        <p class="font-semibold text-slate-800">Сальбутамол</p>
+-                                        <p class="text-sm text-slate-600">2.5-5 мг через небулайзер</p>
+-                                        <p class="text-xs text-slate-500 mt-1">Или 100 мкг/доза через ДАИ со спейсером</p>
+-                                    </div>
+-                                </div>
+-
+-                                <!-- Alternative/Addition -->
+-                                <div class="mt-4 pt-4 border-t border-indigo-200">
+-                                    <p class="text-sm font-semibold text-indigo-800 mb-2">Альтернатива или дополнение (особенно < 6 лет):</p>
+-                                    <div class="bg-white rounded-lg p-3 border border-indigo-100">
+-                                        <p class="font-semibold text-slate-800">Беродуал (комбинированный)</p>
+-                                        <p class="text-sm text-slate-600">Фенотерол 500 мкг/мл + Ипратропия бромид 20 мкг/мл</p>
+-                                        <p class="text-xs text-slate-500 mt-1">До 6 лет: 10 капель (0.5 мл) | Старше 6 лет: 20 капель (1 мл)</p>
+-                                    </div>
+-                                </div>
+-                            </div>
+-                        </div>
+-                    </div>
+-                </div>
+-
+-                <!-- Decision Point 1 -->
+-                <div class="relative mb-8 ml-16">
+-                    <div class="bg-amber-100 border-2 border-amber-400 rounded-xl p-4 relative overflow-hidden">
+-                        <div class="absolute top-0 right-0 w-20 h-20 bg-amber-200 rounded-full -mr-10 -mt-10 opacity-50"></div>
+-                        <h3 class="font-bold text-amber-900 mb-3 flex items-center gap-2">
+-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+-                            </svg>
+-                            Оценка эффективности через 20 минут
+-                        </h3>
+-                        <div class="grid md:grid-cols-2 gap-4">
+-                            <div class="bg-white rounded-lg p-3 border border-amber-200">
+-                                <p class="font-semibold text-emerald-700 mb-2">✓ Положительный эффект</p>
+-                                <ul class="text-sm text-slate-700 space-y-1">
+-                                    <li>• Уменьшение свистящих хрипов</li>
+-                                    <li>• Улучшение проходимости воздуха</li>
+-                                    <li>• Нормализация SpO₂</li>
+-                                    <li>• Уменьшение втяжений</li>
+-                                </ul>
+-                            </div>
+-                            <div class="bg-white rounded-lg p-3 border border-amber-200">
+-                                <p class="font-semibold text-red-700 mb-2">✗ Нет эффекта / Ухудшение</p>
+-                                <ul class="text-sm text-slate-700 space-y-1">
+-                                    <li>• Сохранение/усиление обструкции</li>
+-                                    <li>• SpO₂ не повышается или падает</li>
+-                                    <li>• Нарастание дыхательной недостаточности</li>
+-                                    <li>• Появление признаков утомления</li>
+-                                </ul>
+-                            </div>
+-                        </div>
+-                    </div>
+-                </div>
+-
+-                <!-- Branch: Positive Effect -->
+-                <div class="relative mb-8 ml-16">
+-                    <div class="flex items-start gap-4">
+-                        <div class="w-10 h-10 bg-emerald-500 rounded-full flex items-center justify-center text-white text-sm font-bold shrink-0">A</div>
+-                        <div class="flex-1 bg-emerald-50 rounded-xl p-4 border border-emerald-200">
+-                            <h3 class="font-bold text-emerald-900 mb-2">При положительном эффекте</h3>
+-                            <div class="space-y-2 text-sm text-slate-700">
+-                                <p>• Продолжить ингаляции β2-агонистов каждые 20 мин (при необходимости)</p>
+-                                <p>• Перейти на поддерживающую терапию:</p>
+-                                <div class="ml-4 bg-white rounded p-2 border border-emerald-200">
+-                                    <p class="font-semibold">Ингаляционные ГКС (профилактика рецидива):</p>
+-                                    <p>Будесонид (Пульмикорт) 0.25-0.5 мг 2-3 раза/сут или</p>
+-                                    <p>Флутиказон (Фликсотид) 50-100 мкг 2 раза/сут</p>
+-                                </div>
+-                                <p>• Наблюдение 2-4 часа, решение о госпитализации</p>
+-                            </div>
+-                        </div>
+-                    </div>
+-                </div>
+-
+-                <!-- Branch: No Effect -->
+-                <div class="relative mb-8 ml-16">
+-                    <div class="flex items-start gap-4">
+-                        <div class="w-10 h-10 bg-red-500 rounded-full flex items-center justify-center text-white text-sm font-bold shrink-0">B</div>
+-                        <div class="flex-1 bg-red-50 rounded-xl p-4 border border-red-200">
+-                            <h3 class="font-bold text-red-900 mb-3">При отсутствии эффекта</h3>
+-                            
+-                            <!-- Step 3: Add ICS -->
+-                            <div class="bg-white rounded-lg p-3 border border-red-200 mb-3">
+-                                <p class="font-semibold text-slate-800 mb-2">3. Добавить ингаляционный ГКС</p>
+-                                <p class="text-sm text-slate-600">Будесонид (Пульмикорт) 0.5-1 мг через небулайзер</p>
+-                                <p class="text-xs text-slate-500">В 2-3 мл 0.9% NaCl, ингаляция 15 мин</p>
+-                            </div>
+-
+-                            <!-- Decision Point 2 -->
+-                            <div class="bg-amber-100 rounded-lg p-3 border border-amber-300 mb-3">
+-                                <p class="font-semibold text-amber-900 mb-2">Повторная оценка через 20 мин</p>
+-                                <div class="grid md:grid-cols-2 gap-2 text-sm">
+-                                    <div class="bg-emerald-100 rounded p-2">
+-                                        <p class="text-emerald-800 font-semibold">Эффект есть →</p>
+-                                        <p class="text-emerald-700">Госпитализация в отделение пульмонологии</p>
+-                                    </div>
+-                                    <div class="bg-red-100 rounded p-2">
+-                                        <p class="text-red-800 font-semibold">Нет эффекта →</p>
+-                                        <p class="text-red-700">Системная терапия + ИВЛ при необходимости</p>
+-                                    </div>
+-                                </div>
+-                            </div>
+-
+-                            <!-- Step 4: Systemic Therapy -->
+-                            <div class="bg-white rounded-lg p-3 border border-red-200">
+-                                <p class="font-semibold text-slate-800 mb-2">4. Системная терапия (тяжелое течение)</p>
+-                                <div class="space-y-2 text-sm">
+-                                    <div class="flex items-start gap-2">
+-                                        <span class="bg-red-100 text-red-700 px-2 py-0.5 rounded text-xs font-bold mt-0.5">А</span>
+-                                        <div>
+-                                            <p class="font-semibold">Преднизолон</p>
+-                                            <p class="text-slate-600">1-2 мг/кг в/в или в/м (максимум 60 мг)</p>
+-                                        </div>
+-                                    </div>
+-                                    <div class="flex items-start gap-2">
+-                                        <span class="bg-red-100 text-red-700 px-2 py-0.5 rounded text-xs font-bold mt-0.5">Б</span>
+-                                        <div>
+-                                            <p class="font-semibold">При невозможности ингаляции:</p>
+-                                            <p class="text-slate-600">Аминофиллин (Эуфиллин) 4-5 мг/кг в/в струйно</p>
+-                                            <p class="text-xs text-slate-500">Развести 0.9% NaCl, вводить медленно 10-15 мин</p>
+-                                        </div>
+-                                    </div>
+-                                </div>
+-                            </div>
+-                        </div>
+-                    </div>
+-                </div>
+-
+-                <!-- Critical: Intubation -->
+-                <div class="relative mb-8">
+-                    <div class="flex items-start gap-4">
+-                        <div class="w-12 h-12 bg-rose-600 rounded-full flex items-center justify-center text-white font-bold shrink-0 z-10 animate-pulse">!</div>
+-                        <div class="flex-1 bg-rose-50 rounded-xl p-4 border-2 border-rose-300">
+-                            <h3 class="font-bold text-rose-900 mb-2 flex items-center gap-2">
+-                                Критерии интубации и ИВЛ
+-                                <span class="text-xs bg-rose-200 text-rose-800 px-2 py-1 rounded-full">Экстренно</span>
+-                            </h3>
+-                            <div class="grid md:grid-cols-2 gap-3 text-sm">
+-                                <ul class="space-y-1 text-slate-700">
+-                                    <li>• Декомпенсация дыхательной недостаточности</li>
+-                                    <li>• SpO₂ < 90% на FiO₂ > 0.6</li>
+-                                    <li>• PaCO₂ > 60 мм рт.ст.</li>
+-                                </ul>
+-                                <ul class="space-y-1 text-slate-700">
+-                                    <li>• Утомление дыхательных мышц</li>
+-                                    <li>• Нарушение сознания</li>
+-                                    <li>• Остановка дыхания</li>
+-                                </ul>
+-                            </div>
+-                        </div>
+-                    </div>
+-                </div>
+-            </div>
+-        </section>
+-
+-        <!-- Age-Specific Features -->
+-        <section class="mb-12">
+-            <div class="bg-white rounded-2xl shadow-lg p-6 border border-slate-200">
+-                <h2 class="text-xl font-bold text-slate-800 mb-4 flex items-center gap-2">
+-                    <span class="w-8 h-8 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center text-sm font-bold">3</span>
+-                    Возрастные особенности терапии
+-                </h2>
+-                <div class="grid md:grid-cols-2 gap-6">
+-                    <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-4 border border-blue-200">
+-                        <h3 class="font-bold text-blue-900 mb-3 flex items-center gap-2">
+-                            <span class="text-2xl">👶</span>
+-                            Дети 0-3 лет (ранний возраст)
+-                        </h3>
+-                        <ul class="space-y-2 text-sm text-slate-700">
+-                            <li class="flex items-start gap-2">
+-                                <span class="text-blue-500 mt-1">•</span>
+-                                <span><strong>Преобладает:</strong> воспалительный отек и гиперсекреция вязкой слизи</span>
+-                            </li>
+-                            <li class="flex items-start gap-2">
+-                                <span class="text-blue-500 mt-1">•</span>
+-                                <span><strong>Препарат выбора:</strong> Беродуал (комбинация β2-агониста + антихолинергика)</span>
+-                            </li>
+-                            <li class="flex items-start gap-2">
+-                                <span class="text-blue-500 mt-1">•</span>
+-                                <span>Мало β2-рецепторов, высокая чувствительность к М-холиноблокаторам</span>
+-                            </li>
+-                            <li class="flex items-start gap-2">
+-                                <span class="text-blue-500 mt-1">•</span>
+-                                <span>ДАИ со спейсером часто неприменим — предпочтение небулайзеру</span>
+-                            </li>
+-                            <li class="flex items-start gap-2">
+-                                <span class="text-blue-500 mt-1">•</span>
+-                                <span>Обязательна оценка на бронхиолит (RSV-этиология)</span>
+-                            </li>
+-                        </ul>
+-                    </div>
+-                    <div class="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-xl p-4 border border-emerald-200">
+-                        <h3 class="font-bold text-emerald-900 mb-3 flex items-center gap-2">
+-                            <span class="text-2xl">🧒</span>
+-                            Дети старше 3-5 лет
+-                        </h3>
+-                        <ul class="space-y-2 text-sm text-slate-700">
+-                            <li class="flex items-start gap-2">
+-                                <span class="text-emerald-500 mt-1">•</span>
+-                                <span><strong>Преобладает:</strong> бронхоспазм (гистамин, лейкотриены, простагландины)</span>
+-                            </li>
+-                            <li class="flex items-start gap-2">
+-                                <span class="text-emerald-500 mt-1">•</span>
+-                                <span><strong>Препарат выбора:</strong> Сальбутамол (β2-агонист)</span>
+-                            </li>
+-                            <li class="flex items-start gap-2">
+-                                <span class="text-emerald-500 mt-1">•</span>
+-                                <span>Возможно применение ДАИ со спейсером</span>
+-                            </li>
+-                            <li class="flex items-start gap-2">
+-                                <span class="text-emerald-500 mt-1">•</span>
+-                                <span>Рассмотреть бронхиальную астму при рецидивах</span>
+-                            </li>
+-                            <li class="flex items-start gap-2">
+-                                <span class="text-emerald-500 mt-1">•</span>
+-                                <span>Эффективность β2-агонистов выше, чем у младенцев</span>
+-                            </li>
+-                        </ul>
+-                    </div>
+-                </div>
+-            </div>
+-        </section>
+-
+-        <!-- Monitoring Parameters -->
+-        <section class="mb-12">
+-            <div class="bg-white rounded-2xl shadow-lg p-6 border border-slate-200">
+-                <h2 class="text-xl font-bold text-slate-800 mb-4 flex items-center gap-2">
+-                    <span class="w-8 h-8 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center text-sm font-bold">4</span>
+-                    Мониторинг и контроль
+-                </h2>
+-                <div class="grid md:grid-cols-4 gap-4">
+-                    <div class="bg-slate-50 rounded-xl p-4 text-center border border-slate-200">
+-                        <div class="text-3xl mb-2">💓</div>
+-                        <p class="font-semibold text-slate-800">ЧСС</p>
+-                        <p class="text-xs text-slate-600 mt-1">Тахикардия — признак тяжести</p>
+-                    </div>
+-                    <div class="bg-slate-50 rounded-xl p-4 text-center border border-slate-200">
+-                        <div class="text-3xl mb-2">🫁</div>
+-                        <p class="font-semibold text-slate-800">ЧДД</p>
+-                        <p class="text-xs text-slate-600 mt-1">Тахипноэ, участие вспомогательных мышц</p>
+-                    </div>
+-                    <div class="bg-slate-50 rounded-xl p-4 text-center border border-slate-200">
+-                        <div class="text-3xl mb-2">📊</div>
+-                        <p class="font-semibold text-slate-800">SpO₂</p>
+-                        <p class="text-xs text-slate-600 mt-1">Цель > 94%, критично < 90%</p>
+-                    </div>
+-                    <div class="bg-slate-50 rounded-xl p-4 text-center border border-slate-200">
+-                        <div class="text-3xl mb-2">🎯</div>
+-                        <p class="font-semibold text-slate-800">Аускультация</p>
+-                        <p class="text-xs text-slate-600 mt-1">Динамика хрипов, удлинение выдоха</p>
+-                    </div>
+-                </div>
+-                <div class="mt-4 bg-amber-50 border border-amber-200 rounded-lg p-3 text-sm text-amber-800">
+-                    <strong>Важно:</strong> При оценке тяжести ориентироваться в первую очередь на клинические показатели, затем на данные пульсоксиметрии. 
+-                    Нарастание дыхательных нарушений может не сопровождаться дальнейшим учащением дыхания (при утомлении дыхательных мышц).
+-                </div>
+-            </div>
+-        </section>
+-
+-        <!-- Hospitalization Criteria -->
+-        <section class="mb-12">
+-            <div class="bg-gradient-to-r from-slate-800 to-slate-900 rounded-2xl shadow-lg p-6 text-white">
+-                <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
+-                    <span class="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center text-sm font-bold">5</span>
+-                    Показания к госпитализации
+-                </h2>
+-                <div class="grid md:grid-cols-2 gap-4">
+-                    <ul class="space-y-2">
+-                        <li class="flex items-center gap-2">
+-                            <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+-                            </svg>
+-                            Среднетяжелое и тяжелое течение БОС
+-                        </li>
+-                        <li class="flex items-center gap-2">
+-                            <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+-                            </svg>
+-                            Отсутствие эффекта от небулайзерной терапии в течение 1 часа
+-                        </li>
+-                        <li class="flex items-center gap-2">
+-                            <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+-                            </svg>
+-                            SpO₂ < 92% на воздухе или < 94% на кислороде
+-                        </li>
+-                    </ul>
+-                    <ul class="space-y-2">
+-                        <li class="flex items-center gap-2">
+-                            <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+-                            </svg>
+-                            Необходимость системных ГКС
+-                        </li>
+-                        <li class="flex items-center gap-2">
+-                            <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+-                            </svg>
+-                            Социальные факторы (отдаленность, невозможность наблюдения)
+-                        </li>
+-                        <li class="flex items-center gap-2">
+-                            <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+-                            </svg>
+-                            Младенческий возраст (< 3 мес), недоношенность
+-                        </li>
+-                    </ul>
+-                </div>
+-            </div>
+-        </section>
+-
+-        <!-- Quick Reference Card -->
+-        <section class="mb-8">
+-            <div class="bg-white rounded-2xl shadow-lg p-6 border-2 border-blue-200">
+-                <h2 class="text-lg font-bold text-slate-800 mb-4 text-center">Быстрый доступ: Дозировки препаратов</h2>
+-                <div class="overflow-x-auto">
+-                    <table class="w-full text-sm">
+-                        <thead>
+-                            <tr class="bg-slate-100">
+-                                <th class="text-left p-3 rounded-tl-lg">Препарат</th>
+-                                <th class="text-left p-3">0-6 мес</th>
+-                                <th class="text-left p-3">6 мес-6 лет</th>
+-                                <th class="text-left p-3">> 6 лет</th>
+-                                <th class="text-left p-3 rounded-tr-lg">Примечания</th>
+-                            </tr>
+-                        </thead>
+-                        <tbody class="divide-y divide-slate-200">
+-                            <tr>
+-                                <td class="p-3 font-semibold">Сальбутамол (небулайзер)</td>
+-                                <td class="p-3">1.25-2.5 мг</td>
+-                                <td class="p-3">2.5 мг</td>
+-                                <td class="p-3">2.5-5 мг</td>
+-                                <td class="p-3 text-xs text-slate-600">Развести 2-3 мл 0.9% NaCl</td>
+-                            </tr>
+-                            <tr>
+-                                <td class="p-3 font-semibold">Ипратропия бромид</td>
+-                                <td class="p-3">100-125 мкг</td>
+-                                <td class="p-3">250 мкг (0.5 мл)</td>
+-                                <td class="p-3">250-500 мкг</td>
+-                                <td class="p-3 text-xs text-slate-600">0.25 мг/мл раствор</td>
+-                            </tr>
+-                            <tr>
+-                                <td class="p-3 font-semibold">Беродуал</td>
+-                                <td class="p-3">-</td>
+-                                <td class="p-3">0.5 мл (10 капель)</td>
+-                                <td class="p-3">1 мл (20 капель)</td>
+-                                <td class="p-3 text-xs text-slate-600">Комбинированный препарат</td>
+-                            </tr>
+-                            <tr>
+-                                <td class="p-3 font-semibold">Будесонид</td>
+-                                <td class="p-3">0.25-0.5 мг</td>
+-                                <td class="p-3">0.5-1 мг</td>
+-                                <td class="p-3">1-2 мг</td>
+-                                <td class="p-3 text-xs text-slate-600">При тяжелом течении</td>
+-                            </tr>
+-                            <tr>
+-                                <td class="p-3 font-semibold">Преднизолон</td>
+-                                <td class="p-3" colspan="3" class="text-center">1-2 мг/кг в/в или в/м (макс. 60 мг)</td>
+-                                <td class="p-3 text-xs text-slate-600">При неэффективности ингаляций</td>
+-                            </tr>
+-                            <tr>
+-                                <td class="p-3 font-semibold">Аминофиллин</td>
+-                                <td class="p-3" colspan="3" class="text-center">4-5 мг/кг в/в струйно</td>
+-                                <td class="p-3 text-xs text-slate-600">Медленно 10-15 мин, при невозможности ингаляций</td>
+-                            </tr>
+-                        </tbody>
+-                    </table>
+-                </div>
+-            </div>
+-        </section>
+-
+-        <!-- Footer -->
+-        <footer class="text-center text-slate-500 text-sm py-8 border-t border-slate-200">
+-            <p>Алгоритм составлен на основании учебного пособия «Бронхообструктивный синдром в практике педиатра» (СибГМУ, 2017)</p>
+-            <p class="mt-2">и клинических рекомендаций по неотложной педиатрии</p>
+-        </footer>
+-    </main>
+-
+-    <script>
+-        // Add smooth scrolling and interactive elements
+-        document.querySelectorAll('.step-card').forEach(card => {
+-            card.addEventListener('click', function() {
+-                this.style.transform = 'scale(0.98)';
+-                setTimeout(() => {
+-                    this.style.transform = '';
+-                }, 150);
+-            });
+-        });
+-
+-        // Highlight severity sections on hover
+-        document.querySelectorAll('.severity-mild, .severity-moderate, .severity-severe').forEach(el => {
+-            el.addEventListener('mouseenter', function() {
+-                this.style.transform = 'translateX(5px)';
+-            });
+-            el.addEventListener('mouseleave', function() {
+-                this.style.transform = '';
+-            });
+-        });
+-    </script>
++        <ul class="mt-4 space-y-3 text-sm">
++          <li><b>09:00</b> — прибытие и заселение в «Волхов».</li>
++          <li><b>10:00</b> — завтрак: <b>Restoran Geografiya</b>.</li>
++          <li><b>11:00</b> — Новгородский Кремль (основной must-see).</li>
++          <li><b>12:30</b> — Children's Museum Center (интерактив для детей).</li>
++          <li><b>14:00</b> — обед: <b>Skazka</b>.</li>
++          <li><b>15:30</b> — «Соколиный двор» (хищные птицы, шоу сокольничих).</li>
++          <li><b>17:00</b> — прогулка по набережной Волхова на закате.</li>
++          <li><b>Вечер</b> — для родителей: Samovar / Kul'turnaya Ryumochnaya.</li>
++        </ul>
++      </article>
++
++      <article class="bg-white rounded-2xl p-5 border shadow-sm">
++        <h3 class="font-bold text-lg">Семейный чек-лист</h3>
++        <ul class="mt-3 space-y-2 text-sm">
++          <li>☑️ Вода и перекус детям</li>
++          <li>☑️ Дождевики / ветровки</li>
++          <li>☑️ Power bank</li>
++          <li>☑️ Офлайн-карта</li>
++          <li>☑️ Наличные на случай сбоев связи</li>
++        </ul>
++      </article>
++    </section>
++
++    <section class="grid md:grid-cols-2 gap-4">
++      <article class="bg-white rounded-2xl p-5 border shadow-sm">
++        <div class="flex items-center gap-3">
++          <span class="day-badge text-white text-xs px-3 py-1 rounded-full font-semibold">День 2 • 9 мая</span>
++          <h3 class="font-bold text-lg">Природа и спокойный день</h3>
++        </div>
++        <ul class="mt-4 space-y-3 text-sm">
++          <li><b>10:00</b> — Витославлицы (музей деревянного зодчества).</li>
++          <li><b>11:30</b> — мастер-класс: гончарное или народное ремесло.</li>
++          <li><b>13:30</b> — обед/пикник у Юрьева монастыря.</li>
++          <li><b>15:00</b> — Юрьев монастырь.</li>
++          <li><b>16:30</b> — Chudo Ostrov (игровой центр, если устали/плохая погода).</li>
++          <li><b>Вечер</b> — ужин: гастробар «Наffига Козе баян?!».</li>
++        </ul>
++      </article>
++
++      <article class="bg-white rounded-2xl p-5 border shadow-sm">
++        <div class="flex items-center gap-3">
++          <span class="day-badge text-white text-xs px-3 py-1 rounded-full font-semibold">День 3 • 10 мая</span>
++          <h3 class="font-bold text-lg">Неспешный финал</h3>
++        </div>
++        <ul class="mt-4 space-y-3 text-sm">
++          <li><b>09:30</b> — завтрак: <b>La Chatte</b>.</li>
++          <li><b>11:00</b> — Музейный цех фарфора.</li>
++          <li><b>12:30</b> — прогулка и сувениры перед дорогой домой.</li>
++        </ul>
++        <p class="mt-4 text-sm"><b>Что купить:</b> новгородский мёд, пастилу, пряники, локальное пиво, керамику.</p>
++      </article>
++    </section>
++  </main>
+ </body>
+ </html>
+ 
+EOF
+)
